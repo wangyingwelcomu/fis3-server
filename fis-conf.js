@@ -8,11 +8,12 @@
    FIS3 通过对 release 命令添加 -w 或者 --watch 参数启动文件监听功能。
    fis3 release -w
    添加 -w 参数时，程序不会执行终止；停止程序用快捷键 CTRL+c
- * ###功能-发布到远端机器###
+ * ###功能-发布(上传)本地文件到服务器接收端###
     fis.match('*', {
       deploy: fis.plugin('http-push', {
-        receiver: 'http://cq.01.p.p.baidu.com:8888/receiver.php',//接收脚本
-        to: '/home/work/htdocs' // 注意这个是指的是测试机器的路径，而非本地机器
+        receiver: 'http://you.domain.com/fis3server/receiver.php',//php-搭建的web服务的http接收端服务
+        //receiver: 'http://you.domain.com:8000',//python-搭建的http接收端服务
+        to: '/home/work/htdocs' //上传到服务器的文件存放目录(绝对路径)
       })
     }
 */
@@ -61,11 +62,12 @@ fis.media('devDeploy').set('project.ignore', [
     '/{*.pdf,**/*.pdf}',
 ]);
 
-//发布到远端机器
+//发布(上传)本地文件到服务器接收端
 fis.media('devDeploy').match('*', {
   deploy: fis.plugin('http-push', {
-    receiver: 'http://you.domain.com/fis3server/receiver.php',//接收端http链接
-    to: '/home/www/htdocs/fis3server', // 注意这个是指的是测试机器的路径，而非本地机器
+    receiver: 'http://you.domain.com/fis3server/receiver.php',//php-搭建的web服务的http接收端服务
+    //receiver: 'http://you.domain.com:8000',//python-搭建的http接收端服务
+    to: '/home/www/htdocs/fis3server', //上传到服务器的文件存放目录(绝对路径)
   })
 })
 
