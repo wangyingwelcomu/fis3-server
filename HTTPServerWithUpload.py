@@ -5,7 +5,9 @@ Simple HTTP Server With Upload
 Author: wangyingwelcomu@gmail.com
 Brief: 基于BaseHTTPServer的webserver，主要包括文件查看、普通form表单文件上传功能、fis3组件(http://fis.baidu.com/)的文件上传功能
 参考：https://github.com/python/cpython/blob/2.7/Lib/SimpleHTTPServer.py
-Use : ./HTTPServerWithUpload.py port  port默认:8000
+Use : 
+默认开启：./HTTPServerWithUpload.py port  port默认:8000
+后台执行：nohup  /home/work/httpServer/HTTPServerWithUpload.py 8888 >/dev/null 2>&1 &
 """
 import os,cgi,shutil,urllib,mimetypes
 import posixpath
